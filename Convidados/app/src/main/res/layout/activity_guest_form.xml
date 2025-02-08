@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="32dp"
+    tools:context=".view.GuestFormActivity">
+    
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/Nome"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/edit_text_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autofillHints="name"
+        android:inputType="text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_name" />
+
+    <TextView
+        android:id="@+id/text_opcaoTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/Avaliacao"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_name"/>
+
+    <RadioGroup
+        android:id="@+id/avaliacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_opcaoTime">
+
+        <RadioButton
+            android:id="@+id/radioGostei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Gostei"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@id/text_opcaoTime"
+            app:layout_constraintTop_toBottomOf="@id/text_opcaoTime"/>
+
+        <RadioButton
+            android:id="@+id/radioNaoGostei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/NaoGostei"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@id/text_opcaoTime"
+            app:layout_constraintTop_toBottomOf="@id/radioGostei"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/comentarios"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:text="@string/comentario"
+        android:textSize="17sp"
+        app:layout_constraintTop_toBottomOf="@id/avaliacao"
+        />
+
+    <EditText
+        android:id="@+id/comentario"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/comentarios"
+        />
+
+    <Button
+        android:id="@+id/button_enviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enviar"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/comentario"
+         />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
