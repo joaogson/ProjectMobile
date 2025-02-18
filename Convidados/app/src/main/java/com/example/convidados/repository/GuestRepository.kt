@@ -24,10 +24,10 @@ class GuestRepository private constructor(context: Context){
         return try {
             val db = guestDataBase.writableDatabase
 
-            val presence = if (guest.gostou) 1 else 0
+            val gostou = if (guest.gostou) 1 else 0
 
             val values = ContentValues()
-            values.put(DataBaseConstants.GUEST.COLUMNS.GOSTOU, presence)
+            values.put(DataBaseConstants.GUEST.COLUMNS.GOSTOU, gostou)
             values.put(DataBaseConstants.GUEST.COLUMNS.NAME, guest.name)
 
             db.insert(DataBaseConstants.GUEST.TABLE_NAME, null, values)
@@ -42,10 +42,10 @@ class GuestRepository private constructor(context: Context){
 
         return try {
             val db = guestDataBase.writableDatabase
-            val presence = if (guest.gostou) 1 else 0
+            val gostou = if (guest.gostou) 1 else 0
 
             val values = ContentValues()
-            values.put(DataBaseConstants.GUEST.COLUMNS.GOSTOU, presence)
+            values.put(DataBaseConstants.GUEST.COLUMNS.GOSTOU, gostou)
             values.put(DataBaseConstants.GUEST.COLUMNS.NAME, guest.name)
 
             val selection = DataBaseConstants.GUEST.COLUMNS.ID + " = ?"
@@ -126,7 +126,7 @@ class GuestRepository private constructor(context: Context){
             DataBaseConstants.GUEST.COLUMNS.COMENTARIO
         )
 
-        val cursor = db.rawQuery("SELECT id, name, presence, comentario FROM Guest", null)
+        val cursor = db.rawQuery("SELECT id, name, gostou, comentario FROM Guest", null)
 
         if(cursor != null && cursor.count > 0){
             while (cursor.moveToNext()) {
@@ -162,7 +162,7 @@ class GuestRepository private constructor(context: Context){
                 DataBaseConstants.GUEST.COLUMNS.COMENTARIO
             )
 
-            val cursor = db.rawQuery("SELECT id, name, presence, comentario FROM Guest WHERE gostou == 1", null)
+            val cursor = db.rawQuery("SELECT id, name, gostou, comentario FROM Guest WHERE gostou == 1", null)
 
             if(cursor != null && cursor.count > 0){
                 while (cursor.moveToNext()) {
@@ -198,7 +198,7 @@ class GuestRepository private constructor(context: Context){
                 DataBaseConstants.GUEST.COLUMNS.COMENTARIO
             )
 
-            val cursor = db.rawQuery("SELECT id, name, presence FROM Guest WHERE presence == 0", null)
+            val cursor = db.rawQuery("SELECT id, name, gostou FROM Guest WHERE gostou == 0", null)
 
             if(cursor != null && cursor.count > 0){
                 while (cursor.moveToNext()) {
@@ -207,7 +207,7 @@ class GuestRepository private constructor(context: Context){
                     val gostou = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.GOSTOU))
                     val comentario = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.COMENTARIO))
 
-                    val guest = GuestModel(id, name, gostou == 1, comentario)
+                    val guest = GuestModel(id, name, gostou == 0, comentario)
                     list.add(guest)
                 }
             }
@@ -217,6 +217,24 @@ class GuestRepository private constructor(context: Context){
             return list
         }
         return list
+    }
+
+    @SuppressLint("Recycle", "Range")
+    fun getComentario(idComent: Int): String{
+        try {
+
+            val db = guestDataBase.readableDatabase
+
+
+            val cursor = db.rawQuery("SELECT comentario FROM Guest WHERE id== idComent", null);
+            val coment = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.COMENTARIO));
+
+            return coment;
+
+            cursor.close();
+        } catch (e: Exception){
+            return "Erro ao Exibir comentario";
+        }
     }
 
 

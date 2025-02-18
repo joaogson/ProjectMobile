@@ -1,7 +1,9 @@
 package com.example.convidados.view.adapter
 
 import android.annotation.SuppressLint
+import android.view.GestureDetector
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.convidados.databinding.RowGuestBinding
@@ -9,7 +11,7 @@ import com.example.convidados.model.GuestModel
 import com.example.convidados.view.listener.OnGuestListener
 import com.example.convidados.view.viewholder.GuestsViewHolder
 
-class GuestsAdapter: RecyclerView.Adapter<GuestsViewHolder>() {
+class GuestsAdapter(itemView: Any) : RecyclerView.Adapter<GuestsViewHolder>() {
     private var guestList: List<GuestModel> = listOf()
     private lateinit var listener: OnGuestListener
 
@@ -35,4 +37,6 @@ class GuestsAdapter: RecyclerView.Adapter<GuestsViewHolder>() {
     fun attachListener(guestListener: OnGuestListener){
         listener = guestListener
     }
+
+
 }

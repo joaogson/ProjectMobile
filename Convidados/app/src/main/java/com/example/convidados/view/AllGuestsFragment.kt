@@ -19,7 +19,9 @@ class AllGuestsFragment : Fragment() {
     private var _binding: FragmentAllGuestsBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: GuestsViewModel
-    private val adapter = GuestsAdapter()
+    private val adapter = GuestsAdapter(
+        itemView = TODO()
+    )
 
 
     override fun onCreateView(
@@ -49,6 +51,7 @@ class AllGuestsFragment : Fragment() {
                 viewModel.getAll()
             }
 
+
         }
         adapter.attachListener(listener)
 
@@ -61,8 +64,11 @@ class AllGuestsFragment : Fragment() {
     }
 
     override fun onResume(){
+
+
         super.onResume()
         viewModel.getAll()
+
     }
 
     override fun onDestroyView() {

@@ -20,7 +20,9 @@ class AbsentFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var viewModel: GuestsViewModel
-    private val adapter = GuestsAdapter()
+    private val adapter = GuestsAdapter(
+        itemView = TODO()
+    )
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle? ): View {
         viewModel = ViewModelProvider(this).get(GuestsViewModel::class.java)
@@ -43,6 +45,7 @@ class AbsentFragment : Fragment() {
                 viewModel.delete(id)
                 viewModel.getAbsent()
             }
+
 
         }
         adapter.attachListener(listener)

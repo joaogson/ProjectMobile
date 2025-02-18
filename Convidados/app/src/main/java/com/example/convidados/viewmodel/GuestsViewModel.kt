@@ -1,5 +1,6 @@
 package com.example.convidados.viewmodel
 
+import android.app.AlertDialog
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -18,14 +19,19 @@ class GuestsViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     fun getPresent(){
-        listAllGuests.value = repository.getPresence()
+        listAllGuests.value = repository.getOpinionPositive()
     }
 
     fun getAbsent(){
-        listAllGuests.value = repository.getAbsent()
+        listAllGuests.value = repository.getOpinionNegative()
     }
 
     fun delete(id: Int){
         repository.delete(id)
     }
-}
+
+    fun getComentario(id: Int){
+        repository.getComentario(id);
+    }
+
+    }

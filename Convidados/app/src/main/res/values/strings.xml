@@ -2,8 +2,8 @@
     <string name="app_name">Convidados</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Jean Marcelo da Silva</string>
-    <string name="nav_header_subtitle">20230010471@estudantes.ifpr.edu.br</string>
+    <string name="nav_header_title">João Gabriel Sonalio</string>
+    <string name="nav_header_subtitle">20230040008@estudantes.ifpr.edu.br</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings2">Settings 2</string>
     <string name="action_settings1">Settings 1</string>
@@ -11,10 +11,10 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="todos_os_convidados">Todos os Convidados</string>
-    <string name="menu_all_guests">Todos os Convidados</string>
-    <string name="menu_present">Menu de Presença</string>
-    <string name="menu_absent">Menu de Ausente</string>
+    <string name="todos_os_convidados">Todos os comentarios</string>
+    <string name="menu_all_guests">Todos os comentarios</string>
+    <string name="menu_present">Comentarios Positivos</string>
+    <string name="menu_absent">Comentarios Negativos</string>
     <string name="nomeTime">Nome do Time</string>
     <string name="OpcaoDoTime">Escolha a Opção que mais representa o time:</string>
     <string name="TemMundial">Esse time tem Mundial!</string>
